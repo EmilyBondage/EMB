@@ -21,7 +21,7 @@ PreferenceRegisterExtensionSetting({
 
     run() {
         DrawText(
-            "EMB WORKING",
+            "EMB TEST",
             1000,
             150,
             "Black",
