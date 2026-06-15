@@ -1,31 +1,16 @@
 const mod = bcModSdk.registerMod({
-    name: "myaddon",
-    fullName: "My Addon",
+    name: "EMB",
+    fullName: "Em's Miscellaneous Box",
     version: "1.0.0"
 });
 
-PreferenceRegisterExtensionSetting({
-    Identifier: "MyAddon",
-    ButtonText: "My Addon",
-    Image: "Icons/Preference.png",
+console.log("EMB loaded");
 
-    load() {
-        console.log("Opened");
-    },
+console.log("PreferenceRegisterExtensionSetting:",
+    typeof PreferenceRegisterExtensionSetting);
 
-    run() {
-        DrawText(
-            "Hello World",
-            1000,
-            100,
-            "Black",
-            "White"
-        );
-    },
+console.log("Player:",
+    typeof Player);
 
-    click() {},
-
-    exit() {},
-
-    unload() {}
-});
+console.log("CurrentScreen:",
+    typeof CurrentScreen);
