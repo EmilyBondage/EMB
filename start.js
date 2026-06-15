@@ -1,8 +1,15 @@
-console.log("EMB start");
+if (window.EMB_Loaded) {
+    console.log("EMB already loaded");
+} else {
+    window.EMB_Loaded = true;
+
+    console.log("EMB loading");
+    
+    console.log("EMB start");
 
 const mod = bcModSdk.registerMod({
-    name: "emb",
-    fullName: "Emily's Mod",
+    name: "EMB",
+    fullName: "Em's Miscellaneous Box",
     version: "0.0.1"
 });
 
