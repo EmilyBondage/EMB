@@ -1,63 +1,41 @@
-try {
+console.log("EMB start");
 
-    console.log("EMB start");
-
-    const mod = bcModSdk.registerMod({
+const mod = bcModSdk.registerMod(
+    {
         name: "EMB",
         fullName: "Em's Miscellaneous Box",
         version: "0.0.1"
-    });
+    },
+    {
+        allowReplace: true
+    }
+);
 
-    console.log("Mod registered");
+PreferenceRegisterExtensionSetting({
+    Identifier: "EMB",
+    ButtonText: "EMB Settings",
 
-    PreferenceRegisterExtensionSetting({
-        Identifier: "EMB",
-        ButtonText: "EMB Settings",
+    load() {
+        console.log("EMB opened");
+    },
 
-        load() {
-            console.log("EMB load");
-        },
+    run() {
+        DrawText(
+            "EMB WORKING",
+            1000,
+            500,
+            "Black",
+            "White"
+        );
+    },
 
-        run() {
-            DrawText(
-                "EMB WORKING",
-                1000,
-                150,
-                "Black",
-                "White"
-            );
+    click() {},
 
-            DrawButton(
-                1815,
-                75,
-                90,
-                90,
-                "",
-                "White",
-                "Icons/Exit.png",
-                "Back"
-            );
-        },
+    exit() {
+        console.log("EMB closed");
+    },
 
-        click() {
-            console.log("Back clicked");
+    unload() {}
+});
 
-            if (MouseIn(1815, 75, 90, 90)) {
-                console.log("Attempting exit");
-
-                console.log(
-                    "PreferenceSubscreenExtensionsClear:",
-                    typeof PreferenceSubscreenExtensionsClear
-                );
-            }
-        },
-
-        exit() {},
-        unload() {}
-    });
-
-    console.log("EMB registered");
-
-} catch (e) {
-    console.error("EMB ERROR:", e);
-}
+console.log("EMB registered");
