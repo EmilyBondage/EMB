@@ -1,16 +1,36 @@
+console.log("EMB start");
+
 const mod = bcModSdk.registerMod({
-    name: "EMB",
-    fullName: "Em's Miscellaneous Box",
-    version: "1.0.0"
+    name: "emb",
+    fullName: "Emily's Mod",
+    version: "0.0.1"
 });
 
-console.log("EMB loaded");
+PreferenceRegisterExtensionSetting({
+    Identifier: "EMB",
+    ButtonText: "EMB Settings",
 
-console.log("PreferenceRegisterExtensionSetting:",
-    typeof PreferenceRegisterExtensionSetting);
+    load() {
+        console.log("EMB opened");
+    },
 
-console.log("Player:",
-    typeof Player);
+    run() {
+        DrawText(
+            "EMB WORKING",
+            1000,
+            500,
+            "Black",
+            "White"
+        );
+    },
 
-console.log("CurrentScreen:",
-    typeof CurrentScreen);
+    click() {},
+
+    exit() {
+        console.log("EMB closed");
+    },
+
+    unload() {}
+});
+
+console.log("EMB registered");
