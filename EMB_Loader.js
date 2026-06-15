@@ -15,7 +15,7 @@
 
 (function () {
   "use strict";
-  const src = `~?v=${Date.now()}`;
+  const src = `https://emilybondage.github.io/EMB/start.js?v=${Date.now()}`;
   if (typeof EMB_Loaded === "undefined") {
     const script = document.createElement("script");
     script.src = src;
