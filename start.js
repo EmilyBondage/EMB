@@ -1,52 +1,63 @@
-if (window.EMB_Loaded) {
-    console.log("EMB already loaded");
-} else {
-    window.EMB_Loaded = true;
+try {
 
-    console.log("EMB loading");
-    
     console.log("EMB start");
 
-const mod = bcModSdk.registerMod({
-    name: "EMB",
-    fullName: "Em's Miscellaneous Box",
-    version: "0.0.1"
-});
+    const mod = bcModSdk.registerMod({
+        name: "EMB",
+        fullName: "Em's Miscellaneous Box",
+        version: "0.0.1"
+    });
 
-PreferenceRegisterExtensionSetting({
-    Identifier: "EMB",
-    ButtonText: "EMB Settings",
+    console.log("Mod registered");
 
-    load() {},
+    PreferenceRegisterExtensionSetting({
+        Identifier: "EMB",
+        ButtonText: "EMB Settings",
 
-    run() {
-        DrawText(
-            "EMB WORKING",
-            1000,
-            150,
-            "Black",
-            "White"
-        );
+        load() {
+            console.log("EMB load");
+        },
 
-        DrawButton(
-            1815, 75,      // x, y
-            90, 90,        // width, height
-            "",
-            "White",
-            "Icons/Exit.png",
-            "Back"
-        );
-    },
+        run() {
+            DrawText(
+                "EMB WORKING",
+                1000,
+                150,
+                "Black",
+                "White"
+            );
 
-    click() {
-        if (MouseIn(1815, 75, 90, 90)) {
-            PreferenceSubscreenExtensionsClear();
-        }
-    },
+            DrawButton(
+                1815,
+                75,
+                90,
+                90,
+                "",
+                "White",
+                "Icons/Exit.png",
+                "Back"
+            );
+        },
 
-    exit() {},
+        click() {
+            console.log("Back clicked");
 
-    unload() {}
-});
+            if (MouseIn(1815, 75, 90, 90)) {
+                console.log("Attempting exit");
 
-console.log("EMB registered");
+                console.log(
+                    "PreferenceSubscreenExtensionsClear:",
+                    typeof PreferenceSubscreenExtensionsClear
+                );
+            }
+        },
+
+        exit() {},
+        unload() {}
+    });
+
+    console.log("EMB registered");
+
+} catch (e) {
+    console.error("EMB ERROR:", e);
+}
