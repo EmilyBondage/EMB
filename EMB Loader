@@ -1,0 +1,26 @@
+// ==UserScript==
+// @name EMB
+// @namespace https://www.bondageprojects.com/
+// @version Latest
+// @description Em's Miscellaneous Box
+// @author Emily
+// @match https://*.bondageprojects.elementfx.com/R*/*
+// @match https://*.bondage-europe.com/R*/*
+// @match https://*.bondageprojects.com/R*/*
+// @match http://localhost:*/*
+// @icon  
+// @grant none
+// @run-at document-end
+// ==/UserScript==
+
+(function () {
+  "use strict";
+  const src = `~?v=${Date.now()}`;
+  if (typeof EMB_Loaded === "undefined") {
+    const script = document.createElement("script");
+    script.src = src;
+    script.type = "text/javascript";
+    script.crossOrigin = "anonymous";
+    document.head.appendChild(script);
+  }
+})();
