@@ -15,25 +15,34 @@ PreferenceRegisterExtensionSetting({
     Identifier: "EMB",
     ButtonText: "EMB Settings",
 
-    load() {
-        console.log("EMB opened");
-    },
+    load() {},
 
     run() {
         DrawText(
             "EMB WORKING",
             1000,
-            500,
+            150,
             "Black",
             "White"
         );
+
+        DrawButton(
+            1815, 75,      // x, y
+            90, 90,        // width, height
+            "",
+            "White",
+            "Icons/Exit.png",
+            "Back"
+        );
     },
 
-    click() {},
-
-    exit() {
-        console.log("EMB closed");
+    click() {
+        if (MouseIn(1815, 75, 90, 90)) {
+            PreferenceSubscreenExtensionsClear();
+        }
     },
+
+    exit() {},
 
     unload() {}
 });
