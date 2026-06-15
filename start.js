@@ -1,15 +1,17 @@
-console.log("EMB start");
+(() => {
 
-const mod = bcModSdk.registerMod(
-    {
-        name: "EMB",
-        fullName: "Em's Miscellaneous Box",
-        version: "0.0.1"
-    },
-    {
-        allowReplace: true
-    }
-);
+    console.log("EMB start");
+
+    const mod = bcModSdk.registerMod(
+        {
+            name: "EMB",
+            fullName: "Em's Miscellaneous Box",
+            version: "0.0.1"
+        },
+        {
+            allowReplace: true
+        }
+    );
 
 PreferenceRegisterExtensionSetting({
     Identifier: "EMB",
@@ -43,8 +45,7 @@ PreferenceRegisterExtensionSetting({
     },
 
     exit() {},
+        unload() {}
+    });
 
-    unload() {}
-});
-
-console.log("EMB registered");
+})();
