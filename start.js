@@ -34,7 +34,7 @@
                 if (CurrentEMBScreen === "main") {
 
                     DrawText(
-                        "Main Menu",
+                        "Welcome to Em's Miscellaneous Box!",
                         1000,
                         150,
                         "Black",
@@ -43,12 +43,32 @@
 
                     DrawButton(
                         800,
-                        250,
+                        150,
                         400,
-                        90,
-                        "Test Screen",
+                        -10,
+                        "Features",
                         "White"
                     );
+
+                    DrawButton(
+                        300,
+                        150,
+                        -100,
+                        -10,
+                        "Word Replacement",
+                        "White"
+                    );
+
+                    DrawButton(
+            1815,
+            75,
+            90,
+            90,
+            "",
+            "White",
+            "Icons/Exit.png",
+            "Back"
+        );
 
                 } else if (window.EMB_Screens?.TestScreen) {
 
