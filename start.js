@@ -1,7 +1,5 @@
 (() => {
 
-    console.log("EMB start");
-
     const mod = bcModSdk.registerMod(
         {
             name: "EMB",
@@ -13,39 +11,73 @@
         }
     );
 
-PreferenceRegisterExtensionSetting({
-    Identifier: "EMB",
-    ButtonText: "EMB Settings",
+    let CurrentEMBScreen = "main";
 
-    load() {},
+    window.EMB_SetScreen = (screen) => {
+        CurrentEMBScreen = screen;
+    };
 
-    run() {
-        DrawText(
-            "EMB TEST",
-            1000,
-            150,
-            "Black",
-            "White"
-        );
+    Promise.all([
+        fetch("https://emilybondage.github.io/EMB/screens/TestScreen.js")
+            .then(r => r.text())
+            .then(eval)
+    ]).then(() => {
 
-        DrawButton(
-            1815, 75,      // x, y
-            90, 90,        // width, height
-            "",
-            "White",
-            "Icons/Exit.png",
-            "Back"
-        );
-    },
+        PreferenceRegisterExtensionSetting({
+            Identifier: "EMB",
+            ButtonText: "EMB Settings",
 
-    click() {
-        if (MouseIn(1815, 75, 90, 90)) {
-            PreferenceSubscreenExtensionsClear();
-        }
-    },
+            load() {},
 
-    exit() {},
-        unload() {}
+            run() {
+
+                if (CurrentEMBScreen === "main") {
+
+                    DrawText(
+                        "Main Menu",
+                        1000,
+                        150,
+                        "Black",
+                        "White"
+                    );
+
+                    DrawButton(
+                        800,
+                        250,
+                        400,
+                        90,
+                        "Test Screen",
+                        "White"
+                    );
+
+                } else if (window.EMB_Screens?.TestScreen) {
+
+                    window.EMB_Screens.TestScreen.run();
+
+                }
+
+            },
+
+            click() {
+
+                if (CurrentEMBScreen === "main") {
+
+                    if (MouseIn(800, 250, 400, 90)) {
+                        CurrentEMBScreen = "test";
+                    }
+
+                } else if (window.EMB_Screens?.TestScreen) {
+
+                    window.EMB_Screens.TestScreen.click();
+
+                }
+
+            },
+
+            exit() {},
+            unload() {}
+        });
+
     });
 
 })();
