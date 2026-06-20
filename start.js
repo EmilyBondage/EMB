@@ -42,19 +42,19 @@
                     );
 
                     DrawButton(
-                        800,
-                        150,
                         400,
-                        -10,
+                        250,
+                        0,
+                        90,
                         "Features",
                         "White"
                     );
 
                     DrawButton(
-                        300,
-                        150,
-                        -100,
-                        -10,
+                        400,
+                        350,
+                        0,
+                        190,
                         "Word Replacement",
                         "White"
                     );
